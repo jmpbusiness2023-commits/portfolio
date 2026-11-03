@@ -370,21 +370,21 @@ export function Environments() {
     <section id="clients" className="band-b">
       <div className="container-site py-24 md:py-32">
         <SectionHeading title={environments.heading} intro={environments.text} />
-        <ul className="mt-12 grid gap-4 md:grid-cols-3 md:gap-6" data-reveal>
+        <ul className="mt-12 grid gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-4" data-reveal>
           {environments.major.map((env) => (
             <li key={env.name} className="card flex min-h-40 flex-col justify-between gap-6 p-7 md:p-8">
-              <span className="text-3xl font-semibold tracking-[-0.03em] md:text-4xl">{env.name}</span>
+              <span className="text-3xl font-semibold tracking-[-0.03em] md:text-[2.125rem]">{env.name}</span>
               <span className="text-sm leading-relaxed text-muted text-pretty">{env.line}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:gap-8" data-reveal>
-          <p className="text-sm text-faint">{environments.minorLabel}</p>
-          <ul className="flex flex-wrap gap-x-8 gap-y-3">
-            {environments.minor.map((env) => (
-              <li key={env.name} className="flex items-baseline gap-2">
-                <span className="font-semibold tracking-tight">{env.name}</span>
-                <span className="text-sm text-muted">{env.context}</span>
+        <div className="mt-12" data-reveal>
+          <h3 className="text-xl font-semibold tracking-tight">{environments.educationHeading}</h3>
+          <ul className="mt-5 grid gap-4 sm:grid-cols-2 md:gap-6">
+            {environments.education.map((ed) => (
+              <li key={ed.name} className="card flex flex-col gap-3 p-6 md:p-7">
+                <span className="text-2xl font-semibold tracking-[-0.02em]">{ed.name}</span>
+                <span className="text-sm leading-relaxed text-muted text-pretty">{ed.line}</span>
               </li>
             ))}
           </ul>

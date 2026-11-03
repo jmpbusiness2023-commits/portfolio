@@ -381,18 +381,17 @@ export const projects: Project[] = [
 export const environments = {
   heading: "Des contextes exigeants et structurants",
   text: "Aéronautique de défense, automobile, projets logiciels clients : des environnements où la rigueur, les normes et la qualité du livrable ne se négocient pas.",
-  /** Grands comptes, mis en avant */
+  /** Structures, toutes au même niveau */
   major: [
     { name: "Dassault Aviation", line: "Intégration CAO sur le RAFALE, en mission via ALTEN" },
     { name: "Stellantis", line: "Études mécaniques et statistiques, centre technique de Vélizy" },
     { name: "ALTEN", line: "Conseil en ingénierie" },
+    { name: "VekTrel", line: "Co-pilotage de projets clients, du cadrage à la livraison" },
   ],
-  /** Plus discrets */
-  minorLabel: "Également",
-  minor: [
-    { name: "VekTrel", context: "Collaboration sur le projet TMRC FX" },
-    { name: "Ironhack", context: "Formation Data & IA" },
-    { name: "UFR SITEC", context: "Formation en ingénierie mécanique" },
+  educationHeading: "Formation",
+  education: [
+    { name: "Ironhack", line: "Bootcamp Data & IA, certification RNCP niveau 6" },
+    { name: "UFR SITEC", line: "Master Mécanique des structures composites, Aéronautique" },
   ],
 };
 
