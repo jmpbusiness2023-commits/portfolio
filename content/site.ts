@@ -12,6 +12,8 @@ export const site = {
   name: "Jérémy-Morgan Patole",
   title: "Chef de projet technique & Data Analyst",
   location: "Paris",
+  /** Logo du ruban du haut : nom, puis intitulés en plus petit */
+  brand: { name: "Jérémy-Morgan PATOLE", subtitle: "Chef de projet technique & Data Analyst" },
   /** Textes de l'image de partage (LinkedIn, Slack…) */
   og: { header: "Paris · portfolio", footer: "Étude de cas : TMRC FX" },
   seo: {

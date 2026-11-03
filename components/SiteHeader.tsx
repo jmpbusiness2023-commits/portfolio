@@ -19,8 +19,9 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-md">
       <div className="container-site flex h-16 items-center justify-between gap-6">
-        <Link href="/#top" className="text-[0.9375rem] font-semibold tracking-tight whitespace-nowrap">
-          {site.name}
+        <Link href="/#top" className="flex min-w-0 flex-col leading-tight">
+          <span className="text-[0.9375rem] font-semibold tracking-tight whitespace-nowrap">{site.brand.name}</span>
+          <span className="hidden text-xs whitespace-nowrap text-muted sm:block">{site.brand.subtitle}</span>
         </Link>
 
         <nav aria-label="Navigation principale" className="hidden xl:block">
