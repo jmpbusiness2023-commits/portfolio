@@ -1,0 +1,441 @@
+@import "tailwindcss";
+
+/* Thème : suit le système, surchargé par data-theme sur <html> (bouton de bascule). */
+:root {
+  color-scheme: light;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --fg: #18181b;
+  --muted: #52525b;
+  --faint: #71717a;
+  --line: #e4e4e7;
+  --line-strong: #d4d4d8;
+  --accent: #1d4ed8;
+  --accent-fg: #ffffff;
+  --accent-soft: #eff4ff;
+  --grid: rgb(24 24 27 / 0.05);
+  --accent-border: rgb(29 78 216 / 0.25);
+  --halos: none;
+  --hero-title: none;
+  --band-a: #ffffff;
+  --band-a-border: #e4e7ee;
+  --band-a-shadow: none;
+  --band-b: linear-gradient(180deg, #f3f6fa 0%, #f6f8fc 50%, #f1f4f9 100%);
+  --band-halo:
+    radial-gradient(circle at 20% 0%, rgba(29, 78, 216, 0.07), transparent 32%),
+    linear-gradient(180deg, #f5f8fc 0%, #f8fafd 56%, #f3f6fa 100%);
+  --accent-border-strong: rgb(29 78 216 / 0.35);
+  --band-flagship:
+    radial-gradient(circle at 78% 18%, rgba(29, 78, 216, 0.1), transparent 28%),
+    linear-gradient(180deg, #f3f7fe 0%, #f8fafd 60%, #f2f6fc 100%);
+}
+
+/* Thème sombre : palette de l'ancien portfolio (bleu nuit, halos bleus). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #050816;
+    --surface: rgb(255 255 255 / 0.035);
+    --surface-2: rgb(255 255 255 / 0.06);
+    --fg: #ffffff;
+    --muted: rgb(255 255 255 / 0.72);
+    --faint: rgb(255 255 255 / 0.62);
+    --line: rgb(255 255 255 / 0.1);
+    --line-strong: rgb(255 255 255 / 0.18);
+    --accent: #60a5fa;
+    --accent-fg: #050816;
+    --accent-soft: rgb(37 99 235 / 0.14);
+    --accent-border: rgb(96 165 250 / 0.3);
+    --grid: rgb(147 197 253 / 0.04);
+    --halos:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 24%),
+      radial-gradient(circle at 80% 10%, rgba(96, 165, 250, 0.12), transparent 22%),
+      radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.16), transparent 20%);
+    --hero-title: linear-gradient(to right, #bfdbfe, #60a5fa, #38bdf8);
+    --band-a: linear-gradient(180deg, #08111e 0%, #0b1524 48%, #070b14 100%);
+    --band-a-border: rgb(255 255 255 / 0.055);
+    --band-a-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --band-b: linear-gradient(180deg, #050816 0%, #09131f 50%, #060a13 100%);
+    --band-halo:
+      radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+      linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
+    --accent-border-strong: rgb(96 165 250 / 0.35);
+    --band-flagship:
+      radial-gradient(circle at 78% 18%, rgba(96, 165, 250, 0.18), transparent 28%),
+      radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+      linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #050816;
+  --surface: rgb(255 255 255 / 0.035);
+  --surface-2: rgb(255 255 255 / 0.06);
+  --fg: #ffffff;
+  --muted: rgb(255 255 255 / 0.72);
+  --faint: rgb(255 255 255 / 0.62);
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.18);
+  --accent: #60a5fa;
+  --accent-fg: #050816;
+  --accent-soft: rgb(37 99 235 / 0.14);
+  --accent-border: rgb(96 165 250 / 0.3);
+  --grid: rgb(147 197 253 / 0.04);
+  --halos:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgba(96, 165, 250, 0.12), transparent 22%),
+    radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.16), transparent 20%);
+  --hero-title: linear-gradient(to right, #bfdbfe, #60a5fa, #38bdf8);
+  --band-a: linear-gradient(180deg, #08111e 0%, #0b1524 48%, #070b14 100%);
+  --band-a-border: rgb(255 255 255 / 0.055);
+  --band-a-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  --band-b: linear-gradient(180deg, #050816 0%, #09131f 50%, #060a13 100%);
+  --band-halo:
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+    linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
+  --accent-border-strong: rgb(96 165 250 / 0.35);
+  --band-flagship:
+    radial-gradient(circle at 78% 18%, rgba(96, 165, 250, 0.18), transparent 28%),
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+    linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-border: var(--accent-border);
+  --color-accent-border-strong: var(--accent-border-strong);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-geist-sans), ui-sans-serif, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Halos bleus fixes du thème sombre (aucun en clair) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--halos);
+}
+
+/* Titre du hero : dégradé bleu en sombre, couleur pleine en clair */
+.hero-title {
+  background-image: var(--hero-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+:root[data-theme="dark"] .hero-title {
+  color: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-title {
+    color: transparent;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Composants maison dans un layer : les utilitaires Tailwind (hidden, sm:…) gardent la priorité. */
+@layer components {
+/* Conteneur */
+.container-site {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
+}
+
+/* Bandes de section pleine largeur, à teintes alternées */
+.band-a {
+  background: var(--band-a);
+  border-block: 1px solid var(--band-a-border);
+  box-shadow: var(--band-a-shadow);
+}
+.band-b {
+  background: var(--band-b);
+}
+.band-halo {
+  background: var(--band-halo);
+  border-block: 1px solid var(--band-a-border);
+}
+
+.band-flagship {
+  background: var(--band-flagship);
+  border-block: 1px solid var(--accent-border);
+}
+
+/* Badge « Projet phare » : seul petit libellé de ce type sur l'accueil */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3125rem 0.75rem;
+  border: 1px solid var(--accent-border-strong);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Pages d'étude de cas : même alternance de bandes */
+.case-bands > section:nth-of-type(odd) {
+  background: var(--band-a);
+  border-block: 1px solid var(--band-a-border);
+  box-shadow: var(--band-a-shadow);
+}
+.case-bands > section:nth-of-type(even) {
+  background: var(--band-b);
+}
+
+/* Boutons : une seule forme (pilule) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.btn-primary:hover {
+  background: color-mix(in oklab, var(--accent) 86%, var(--fg));
+}
+.btn-secondary {
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  background: var(--surface);
+}
+.btn-secondary:hover {
+  border-color: var(--fg);
+}
+/* Boutons de la carte Contact (fond bleu clair, identique dans les deux thèmes) */
+.btn-ink {
+  background: #050816;
+  color: #ffffff;
+}
+.btn-ink:hover {
+  background: #1e293b;
+}
+.btn-glass {
+  border: 1px solid rgb(5 8 22 / 0.12);
+  background: rgb(255 255 255 / 0.72);
+  color: #050816;
+}
+.btn-glass:hover {
+  background: #ffffff;
+}
+.btn-outline-ink {
+  border: 1px solid rgb(5 8 22 / 0.35);
+  color: #050816;
+}
+.btn-outline-ink:hover {
+  background: rgb(255 255 255 / 0.35);
+}
+.contact-card :focus-visible {
+  outline-color: #050816;
+}
+.btn .btn-arrow {
+  transition: transform 160ms ease;
+}
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Lien texte avec soulignement fin */
+.link {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition:
+    text-decoration-color 160ms ease,
+    color 160ms ease;
+}
+.link:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Tag technique */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+/* Pastille de compétence (section Expertise) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4375rem 0.875rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+/* Carte : une seule échelle d'arrondi (12 px) */
+.card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.card-hover {
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+.card-hover:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+/* Trame d'ingénierie : quadrillage fin, estompé sur les bords */
+.blueprint {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 75%);
+}
+
+/* Repères d'angle, comme sur un cartouche de plan */
+.ticks {
+  position: relative;
+}
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--fg);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+}
+
+/* Icône du bouton de thème : lune en clair, soleil en sombre */
+.theme-icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-sun {
+    display: block;
+  }
+  :root:not([data-theme="light"]) .theme-icon-moon {
+    display: none;
+  }
+}
+
+/* Apparition au scroll : active seulement si JS est présent */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
