@@ -47,3 +47,4 @@ next-env.d.ts
 # outils locaux et notes de travail (hors dépôt public)
 /.claude/
 /BRIEF-PORTFOLIO.md
+/RETOURS-*.md
