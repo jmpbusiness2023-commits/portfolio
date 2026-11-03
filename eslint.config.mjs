@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Générateur local des CV, hors dépôt.
+    "sources-cv/**",
   ]),
 ]);
 
