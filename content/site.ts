@@ -8,7 +8,7 @@
  */
 
 export const site = {
-  url: "https://portfolio-jeremy-patole.vercel.app",
+  url: "https://portfolio-jeremy-morgan-patole.vercel.app",
   name: "Jérémy-Morgan Patole",
   title: "Chef de projet technique & Data Analyst",
   location: "Paris",
