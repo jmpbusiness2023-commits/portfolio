@@ -59,7 +59,7 @@ export const nav = [
 export const hero = {
   pitch:
     "Je pilote des projets logiciels de bout en bout et je construis les pipelines de données qui les font tourner.",
-  primaryCta: { label: "Voir le projet TMRC FX", href: "/use-cases/tmrc-fx" },
+  primaryCta: { label: "Voir le projet phare", href: "/#tmrc-fx" },
   photoAlt:
     "Jérémy-Morgan Patole, bras croisés, dans un espace de travail lumineux",
   availability: "Basé à Paris · hybride",
