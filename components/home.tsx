@@ -163,7 +163,7 @@ export function TmrcFeature() {
           data-reveal
         >
           <span className="badge">{tmrcFeature.eyebrow}</span>
-          <div className="mt-6 grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
+          <div className="mt-6 grid gap-8 md:grid-cols-12 md:items-start md:gap-10">
             <h2 className="text-3xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance md:col-span-7 md:text-5xl">
               {tmrcFeature.heading}
             </h2>
