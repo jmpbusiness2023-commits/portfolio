@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ListIcon, XIcon } from "@phosphor-icons/react";
-import { contact, nav, site } from "@/content/site";
+import { LinkedinLogoIcon, ListIcon, XIcon } from "@phosphor-icons/react";
+import { contact, contactSection, nav, site } from "@/content/site";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader() {
@@ -23,8 +23,8 @@ export function SiteHeader() {
           {site.name}
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden lg:block">
-          <ul className="flex items-center gap-7 text-sm text-muted">
+        <nav aria-label="Navigation principale" className="hidden xl:block">
+          <ul className="flex items-center gap-6 text-sm text-muted">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="whitespace-nowrap transition-colors hover:text-fg">
@@ -36,13 +36,21 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/#contact" className="btn btn-primary hidden !min-h-10 !py-2 !text-sm sm:inline-flex">
-            {contact.ctaLabel}
-          </Link>
+          <span aria-hidden className="mr-2 hidden h-6 w-px bg-line xl:block" />
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${contactSection.labels.linkedin} (nouvel onglet)`}
+            className="btn btn-secondary min-h-10 px-3 py-2 text-sm sm:px-4"
+          >
+            <LinkedinLogoIcon size={18} weight="fill" className="text-accent" aria-hidden />
+            <span className="hidden sm:inline">{contactSection.labels.linkedin}</span>
+          </a>
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-line lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-line xl:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
@@ -57,10 +65,10 @@ export function SiteHeader() {
         id="menu-mobile"
         aria-label="Navigation mobile"
         hidden={!open}
-        className="border-t border-line bg-bg lg:hidden"
+        className="border-t border-line bg-bg xl:hidden"
       >
         <ul className="container-site flex flex-col py-3">
-          {[...nav, { label: contact.ctaLabel, href: "/#contact" }].map((item) => (
+          {nav.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
