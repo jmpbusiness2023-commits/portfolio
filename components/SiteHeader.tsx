@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { LinkedinLogoIcon, ListIcon, XIcon } from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon, LinkedinLogoIcon, ListIcon, XIcon } from "@phosphor-icons/react";
 import { contact, contactSection, nav, site } from "@/content/site";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -18,14 +18,14 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-md">
-      <div className="container-site flex h-16 items-center justify-between gap-6">
-        <Link href="/#top" className="flex min-w-0 flex-col leading-tight">
+      <div className="container-site flex h-16 items-center justify-between gap-3 sm:gap-6">
+        <Link href="/#top" className="flex shrink-0 flex-col leading-tight">
           <span className="text-[0.9375rem] font-semibold tracking-tight whitespace-nowrap">{site.brand.name}</span>
           <span className="hidden text-xs whitespace-nowrap text-muted sm:block">{site.brand.subtitle}</span>
         </Link>
 
         <nav aria-label="Navigation principale" className="hidden xl:block">
-          <ul className="flex items-center gap-6 text-sm text-muted">
+          <ul className="flex items-center gap-5 text-sm text-muted">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="whitespace-nowrap transition-colors hover:text-fg">
@@ -36,14 +36,21 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <span aria-hidden className="mr-2 hidden h-6 w-px bg-line xl:block" />
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+          <span aria-hidden className="mr-1 hidden h-6 w-px bg-line xl:block" />
+          <Link
+            href="/#contact"
+            className="btn btn-primary min-h-9 px-2.5 py-2 text-sm sm:min-h-10 sm:px-4"
+          >
+            <EnvelopeSimpleIcon size={18} className="sm:hidden" aria-hidden />
+            <span className="sr-only sm:not-sr-only">{contact.ctaLabel}</span>
+          </Link>
           <a
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${contactSection.labels.linkedin} (nouvel onglet)`}
-            className="btn btn-secondary min-h-10 px-3 py-2 text-sm sm:px-4"
+            className="btn btn-secondary min-h-9 px-2.5 py-2 text-sm sm:min-h-10 sm:px-4"
           >
             <LinkedinLogoIcon size={18} weight="fill" className="text-accent" aria-hidden />
             <span className="hidden sm:inline">{contactSection.labels.linkedin}</span>
@@ -80,6 +87,17 @@ export function SiteHeader() {
               </Link>
             </li>
           ))}
+          <li>
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 py-3 text-base"
+            >
+              <LinkedinLogoIcon size={18} weight="fill" className="text-accent" aria-hidden />
+              {contactSection.labels.linkedin}
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
