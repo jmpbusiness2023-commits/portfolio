@@ -39,7 +39,7 @@ export function Hero() {
       <div className="container-site grid gap-12 pt-12 pb-20 md:grid-cols-12 md:items-center md:gap-10 md:pt-20 md:pb-28">
         <div className="md:col-span-7">
           <p className="font-mono text-xs text-muted">{hero.availability}</p>
-          <h1 className="mt-6 text-[2.75rem] leading-[0.98] font-semibold tracking-[-0.04em] sm:text-6xl lg:text-[5.25rem]">
+          <h1 className="hero-title mt-6 text-[2.75rem] leading-[0.98] font-semibold tracking-[-0.04em] sm:text-6xl lg:text-[5.25rem]">
             {first}
             <br />
             {last}
