@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function TmrcFxPage() {
   const { pilotage, data } = tmrcCase.work;
   return (
-    <article>
+    <article className="case-bands">
       <CaseHeader eyebrow={L.eyebrow} title={tmrcCase.heading} meta={tmrcCase.meta} />
 
       <CaseRow title={L.context}>
@@ -50,14 +50,14 @@ export default function TmrcFxPage() {
         />
       </CaseRow>
 
-      <section className="border-b border-line">
+      <section>
         <div className="container-site py-14 md:py-20">
           <h2 className="mb-10 text-2xl font-semibold tracking-tight">{tmrcCase.architecture.heading}</h2>
           <ArchitectureDiagram />
         </div>
       </section>
 
-      <section className="border-b border-line">
+      <section>
         <div className="container-site py-14 md:py-20">
           <h2 className="mb-10 text-2xl font-semibold tracking-tight">{L.results}</h2>
           <StatsBand />

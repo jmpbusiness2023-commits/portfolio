@@ -16,7 +16,7 @@ export function CaseHeader({
   meta: { label: string; value: ReactNode }[];
 }) {
   return (
-    <header className="relative isolate overflow-hidden border-b border-line">
+    <header className="band-halo relative isolate overflow-hidden">
       <div aria-hidden className="blueprint absolute inset-0 -z-10" />
       <div className="container-site pt-10 pb-14 md:pt-14 md:pb-20">
         <Link
@@ -49,7 +49,7 @@ export function CaseHeader({
 /** Ligne éditoriale : titre à gauche, contenu à droite. */
 export function CaseRow({ title, children, id }: { title: string; children: ReactNode; id?: string }) {
   return (
-    <section id={id} className="border-b border-line">
+    <section id={id}>
       <div className="container-site grid gap-6 py-14 md:grid-cols-12 md:gap-10 md:py-20" data-reveal>
         <h2 className="text-2xl font-semibold tracking-tight md:col-span-4 lg:col-span-3">{title}</h2>
         <div className="md:col-span-8 lg:col-span-9">{children}</div>
@@ -60,7 +60,7 @@ export function CaseRow({ title, children, id }: { title: string; children: Reac
 
 export function CaseFooter() {
   return (
-    <section className="bg-surface">
+    <section>
       <div className="container-site flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">
         <p className="max-w-md text-2xl font-semibold tracking-tight text-balance">
           {caseLabels.footerHeading}

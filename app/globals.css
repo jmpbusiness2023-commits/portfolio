@@ -18,6 +18,13 @@
   --accent-border: rgb(29 78 216 / 0.25);
   --halos: none;
   --hero-title: none;
+  --band-a: #ffffff;
+  --band-a-border: #e4e7ee;
+  --band-a-shadow: none;
+  --band-b: linear-gradient(180deg, #f3f6fa 0%, #f6f8fc 50%, #f1f4f9 100%);
+  --band-halo:
+    radial-gradient(circle at 20% 0%, rgba(29, 78, 216, 0.07), transparent 32%),
+    linear-gradient(180deg, #f5f8fc 0%, #f8fafd 56%, #f3f6fa 100%);
 }
 
 /* Thème sombre : palette de l'ancien portfolio (bleu nuit, halos bleus). */
@@ -25,8 +32,8 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #050816;
-    --surface: #0b1220;
-    --surface-2: #07101c;
+    --surface: rgb(255 255 255 / 0.035);
+    --surface-2: rgb(255 255 255 / 0.06);
     --fg: #ffffff;
     --muted: rgb(255 255 255 / 0.72);
     --faint: rgb(255 255 255 / 0.62);
@@ -42,14 +49,21 @@
       radial-gradient(circle at 80% 10%, rgba(96, 165, 250, 0.12), transparent 22%),
       radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.16), transparent 20%);
     --hero-title: linear-gradient(to right, #bfdbfe, #60a5fa, #38bdf8);
+    --band-a: linear-gradient(180deg, #08111e 0%, #0b1524 48%, #070b14 100%);
+    --band-a-border: rgb(255 255 255 / 0.055);
+    --band-a-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --band-b: linear-gradient(180deg, #050816 0%, #09131f 50%, #060a13 100%);
+    --band-halo:
+      radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+      linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #050816;
-  --surface: #0b1220;
-  --surface-2: #07101c;
+  --surface: rgb(255 255 255 / 0.035);
+  --surface-2: rgb(255 255 255 / 0.06);
   --fg: #ffffff;
   --muted: rgb(255 255 255 / 0.72);
   --faint: rgb(255 255 255 / 0.62);
@@ -65,6 +79,13 @@
     radial-gradient(circle at 80% 10%, rgba(96, 165, 250, 0.12), transparent 22%),
     radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.16), transparent 20%);
   --hero-title: linear-gradient(to right, #bfdbfe, #60a5fa, #38bdf8);
+  --band-a: linear-gradient(180deg, #08111e 0%, #0b1524 48%, #070b14 100%);
+  --band-a-border: rgb(255 255 255 / 0.055);
+  --band-a-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  --band-b: linear-gradient(180deg, #050816 0%, #09131f 50%, #060a13 100%);
+  --band-halo:
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.14), transparent 32%),
+    linear-gradient(180deg, #07101c 0%, #0b1220 56%, #070a12 100%);
 }
 
 @theme inline {
@@ -137,7 +158,7 @@ body::before {
 /* Conteneur */
 .container-site {
   width: 100%;
-  max-width: 1200px;
+  max-width: 80rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
@@ -145,6 +166,30 @@ body::before {
   .container-site {
     padding-inline: 2rem;
   }
+}
+
+/* Bandes de section pleine largeur, à teintes alternées */
+.band-a {
+  background: var(--band-a);
+  border-block: 1px solid var(--band-a-border);
+  box-shadow: var(--band-a-shadow);
+}
+.band-b {
+  background: var(--band-b);
+}
+.band-halo {
+  background: var(--band-halo);
+  border-block: 1px solid var(--band-a-border);
+}
+
+/* Pages d'étude de cas : même alternance de bandes */
+.case-bands > section:nth-of-type(odd) {
+  background: var(--band-a);
+  border-block: 1px solid var(--band-a-border);
+  box-shadow: var(--band-a-shadow);
+}
+.case-bands > section:nth-of-type(even) {
+  background: var(--band-b);
 }
 
 /* Boutons : une seule forme (pilule) */

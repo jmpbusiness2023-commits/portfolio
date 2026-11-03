@@ -84,8 +84,8 @@ export function Hero() {
 
 export function Profile() {
   return (
-    <section id="profil" className="border-t border-line">
-      <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:gap-10 md:py-28">
+    <section id="profil" className="band-a">
+      <div className="container-site grid gap-8 py-24 md:grid-cols-12 md:gap-10 md:py-32">
         <h2
           className="text-3xl font-semibold tracking-tight text-balance md:col-span-5 md:text-[2.5rem] md:leading-[1.1]"
           data-reveal
@@ -106,8 +106,8 @@ export function Profile() {
 export function TwoWays() {
   const [projet, data] = twoWays.tracks;
   return (
-    <section id="expertise">
-      <div className="container-site pb-20 md:pb-28">
+    <section id="expertise" className="band-b">
+      <div className="container-site py-24 md:py-32">
         <SectionHeading title={twoWays.heading} intro={twoWays.intro} />
         <div className="mt-12 grid gap-6 md:grid-cols-12">
           <TrackBlock track={projet} className="card p-7 md:col-span-7 md:p-10" which="projet" />
@@ -152,8 +152,8 @@ function TrackBlock({
 
 export function TmrcFeature() {
   return (
-    <section id="tmrc-fx" className="border-y border-line bg-surface">
-      <div className="container-site py-20 md:py-28">
+    <section id="tmrc-fx" className="band-halo">
+      <div className="container-site py-24 md:py-32">
         <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
           <SectionHeading eyebrow={tmrcFeature.eyebrow} title={tmrcFeature.heading} className="md:col-span-7" />
           <div className="space-y-6 md:col-span-5" data-reveal>
@@ -177,8 +177,8 @@ export function TmrcFeature() {
 
 export function Experiences() {
   return (
-    <section id="experiences">
-      <div className="container-site grid gap-12 py-20 md:grid-cols-12 md:gap-10 md:py-28">
+    <section id="experiences" className="band-b">
+      <div className="container-site grid gap-12 py-24 md:grid-cols-12 md:gap-10 md:py-32">
         <div className="md:col-span-4">
           <div className="md:sticky md:top-28">
             <SectionHeading title={experiencesSection.heading} intro={experiencesSection.intro} />
@@ -265,8 +265,8 @@ export function Projects() {
   const [lead, ...rest] = featured;
 
   return (
-    <section id="projects" className="border-t border-line">
-      <div className="container-site py-20 md:py-28">
+    <section id="projects" className="band-a">
+      <div className="container-site py-24 md:py-32">
         <SectionHeading title={projectsSection.heading} intro={projectsSection.intro} />
 
         <div className="mt-12 grid gap-6 md:grid-cols-12">
@@ -331,8 +331,8 @@ export function Projects() {
 
 export function Environments() {
   return (
-    <section id="clients" className="border-t border-line bg-surface">
-      <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:py-28">
+    <section id="clients" className="band-b">
+      <div className="container-site grid gap-10 py-24 md:grid-cols-12 md:py-32">
         <SectionHeading title={environments.heading} intro={environments.text} className="md:col-span-5" />
         <ul className="divide-y divide-line border-y border-line md:col-span-7" data-reveal>
           {environments.items.map((env) => (
@@ -352,8 +352,8 @@ export function Environments() {
 
 export function UseCases() {
   return (
-    <section id="use-cases" className="border-t border-line">
-      <div className="container-site py-20 md:py-28">
+    <section id="use-cases" className="band-a">
+      <div className="container-site py-24 md:py-32">
         <SectionHeading title={useCases.heading} intro={useCases.intro} />
 
         <Link
@@ -400,8 +400,8 @@ export function UseCases() {
 
 export function Stack() {
   return (
-    <section id="stack" className="border-t border-line">
-      <div className="container-site grid gap-10 py-20 md:grid-cols-12 md:py-28">
+    <section id="stack" className="band-b">
+      <div className="container-site grid gap-10 py-24 md:grid-cols-12 md:py-32">
         <SectionHeading title={stack.heading} intro={stack.intro} className="md:col-span-4" />
         <dl className="border-t border-line md:col-span-8" data-reveal>
           {stack.families.map((family) => (
@@ -430,8 +430,8 @@ export function Contact() {
     { label: l.github, value: l.githubShort, href: contact.github, external: true },
   ];
   return (
-    <section id="contact" className="border-t border-line bg-surface">
-      <div className="container-site grid gap-12 py-20 md:grid-cols-12 md:py-32">
+    <section id="contact" className="band-halo">
+      <div className="container-site grid gap-12 py-24 md:grid-cols-12 md:py-32">
         <div className="md:col-span-7" data-reveal>
           <h2 className="text-4xl font-semibold tracking-[-0.03em] text-balance md:text-6xl md:leading-[1.02]">
             {contactSection.heading}

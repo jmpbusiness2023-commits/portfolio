@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: PageProps<"/use-cases/[slu
   const others = projects.filter((p) => p.slug !== project.slug);
 
   return (
-    <article>
+    <article className="case-bands">
       <CaseHeader
         eyebrow={project.subtitle}
         title={project.title}
