@@ -77,7 +77,7 @@ export const twoWays = {
       title: "Pilotage de projet technique",
       lead: "Pour les postes de chef de projet technique, déploiement, intégration et professional services.",
       proofs: [
-        "Cadrage client : 20 questions bloquantes tranchées en décisions tracées avant tout développement",
+        "Cadrage client : identifier les points bloquants dès le brief et faire valider des arbitrages documentés avant tout développement",
         "Recette sur l'environnement du client, guides d'installation, suivi des anomalies",
         "Plus de 3 ans en conseil chez un grand compte de la défense, sous fortes exigences de normes et de sécurité",
       ],
@@ -89,7 +89,7 @@ export const twoWays = {
       lead: "Pour les postes de data analyst, data scientist et data & IA.",
       proofs: [
         "Pipeline Python temps réel : ingestion, validation, détection de valeurs aberrantes, rejeu déterministe",
-        "Analyse de sensibilité sur 6 mois d'historique réel pour arbitrer des paramètres métier",
+        "Analyse de sensibilité sur historique réel pour arbitrer des paramètres métier",
         "Tableaux de bord (Tableau, Power BI), A/B testing, construction et pilotage d'agents IA",
       ],
       cv: cvs.data,
