@@ -67,24 +67,16 @@ export function Hero() {
           </p>
         </div>
 
-        <figure className="md:col-span-5">
-          <div className="relative overflow-hidden rounded-[12px] border border-line bg-surface-2">
-            <Image
-              src={heroPhoto}
-              alt={hero.photoAlt}
-              priority
-              placeholder="blur"
-              sizes="(min-width: 1200px) 460px, (min-width: 768px) 40vw, 100vw"
-              className="aspect-[4/5] w-full object-cover object-[50%_22%]"
-            />
-          </div>
-          <figcaption className="mt-3 flex items-baseline justify-between gap-4 font-mono text-xs text-muted">
-            <span>{hero.current.label}</span>
-            <Link href={hero.current.href} className="link text-right">
-              {hero.current.text}
-            </Link>
-          </figcaption>
-        </figure>
+        <div className="relative overflow-hidden rounded-[12px] border border-line bg-surface-2 md:col-span-5">
+          <Image
+            src={heroPhoto}
+            alt={hero.photoAlt}
+            priority
+            placeholder="blur"
+            sizes="(min-width: 1200px) 460px, (min-width: 768px) 40vw, 100vw"
+            className="aspect-[4/5] w-full object-cover object-[50%_22%]"
+          />
+        </div>
       </div>
     </section>
   );

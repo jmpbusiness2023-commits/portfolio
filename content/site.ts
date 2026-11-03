@@ -59,7 +59,6 @@ export const hero = {
   photoAlt:
     "Jérémy-Morgan Patole, bras croisés, dans un espace de travail lumineux",
   availability: "Basé à Paris · hybride",
-  current: { label: "Actuellement", text: "VekTrel, projet TMRC FX", href: "/use-cases/tmrc-fx" },
 };
 
 export const profile = {
