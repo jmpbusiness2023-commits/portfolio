@@ -25,7 +25,7 @@ export default function TmrcFxPage() {
   const { pilotage, data } = tmrcCase.work;
   return (
     <article className="case-bands">
-      <CaseHeader eyebrow={L.eyebrow} title={tmrcCase.heading} meta={tmrcCase.meta} />
+      <CaseHeader eyebrow={L.eyebrow} title={tmrcCase.heading} lead={tmrcCase.lead} meta={tmrcCase.meta} />
 
       <CaseRow title={L.context}>
         <p className="max-w-3xl text-lg leading-relaxed text-pretty md:text-xl">{tmrcCase.context}</p>

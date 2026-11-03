@@ -411,7 +411,7 @@ export function UseCases() {
               <p className="font-mono text-xs text-muted">{useCases.tmrcLabel}</p>
             </div>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">{tmrcCase.title}</h3>
-            <p className="mt-3 max-w-2xl leading-relaxed text-muted text-pretty">{tmrcCase.challenge}</p>
+            <p className="mt-3 max-w-2xl leading-relaxed text-muted text-pretty">{tmrcFeature.context}</p>
           </div>
           <div className="flex items-center gap-2 text-sm font-medium text-accent md:col-span-3 md:justify-end">
             {tmrcFeature.cta.label}

@@ -107,11 +107,14 @@ export const tmrcStats = [
   { value: "3", label: "personnes + agents IA" },
 ];
 
+/** Description de TMRC FX : bloc Projet phare, carte Use cases et introduction de l'étude de cas. */
+const tmrcSummary =
+  "Création d'un assistant d'analyse technique qui repère des configurations de marché Forex à partir de la stratégie fournie par le client. Co-pilotage du projet pour VekTrel, du cadrage à la livraison d'une application de bureau macOS connectée à MetaTrader 5.";
+
 export const tmrcFeature = {
   eyebrow: "Projet phare",
   heading: "TMRC FX : du brief client à l'application livrée",
-  context:
-    "Un client pilote voulait un assistant pour repérer des configurations de marché sur l'EUR/USD à partir de règles qu'il appliquait à la main. En collaboration avec VekTrel, j'ai copiloté le projet du cadrage à la livraison d'une application de bureau connectée à MetaTrader 5.",
+  context: tmrcSummary,
   cta: { label: "Lire l'étude de cas", href: "/use-cases/tmrc-fx" },
   tags: ["Cadrage", "Recette", "Python", "Temps réel", "Tauri"],
 };
@@ -475,6 +478,7 @@ export const tmrcCase = {
   slug: "tmrc-fx",
   title: "TMRC FX",
   heading: "TMRC FX : du brief client à l'application livrée",
+  lead: tmrcSummary,
   seo: {
     title: "Étude de cas TMRC FX | Jérémy-Morgan Patole",
     description:
