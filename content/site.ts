@@ -48,6 +48,7 @@ export const nav = [
   { label: "Expertise", href: "/#expertise" },
   { label: "Expériences", href: "/#experiences" },
   { label: "Projets", href: "/#projects" },
+  { label: "Environnements", href: "/#clients" },
   { label: "Use cases", href: "/#use-cases" },
   { label: "Stack", href: "/#stack" },
   { label: "Contact", href: "/#contact" },
@@ -375,14 +376,20 @@ export const projects: Project[] = [
 ];
 
 export const environments = {
-  heading: "Des environnements exigeants",
-  text: "Défense, automobile, formation data, conseil logiciel : des cadres différents, la même exigence de rigueur et de traçabilité.",
-  items: [
-    { name: "VekTrel", context: "Conseil et développement logiciel" },
-    { name: "Dassault Aviation", context: "Aéronautique de défense" },
-    { name: "ALTEN", context: "Conseil en ingénierie" },
-    { name: "Stellantis", context: "Automobile" },
+  heading: "Des contextes exigeants et structurants",
+  text: "Aéronautique de défense, automobile, projets logiciels clients : des environnements où la rigueur, les normes et la qualité du livrable ne se négocient pas.",
+  /** Grands comptes, mis en avant */
+  major: [
+    { name: "Dassault Aviation", line: "Intégration CAO sur le RAFALE, en mission via ALTEN" },
+    { name: "Stellantis", line: "Études mécaniques et statistiques, centre technique de Vélizy" },
+    { name: "ALTEN", line: "Conseil en ingénierie" },
+  ],
+  /** Plus discrets */
+  minorLabel: "Également",
+  minor: [
+    { name: "VekTrel", context: "Collaboration sur le projet TMRC FX" },
     { name: "Ironhack", context: "Formation Data & IA" },
+    { name: "UFR SITEC", context: "Formation en ingénierie mécanique" },
   ],
 };
 

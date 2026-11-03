@@ -357,19 +357,27 @@ export function Projects() {
 export function Environments() {
   return (
     <section id="clients" className="band-b">
-      <div className="container-site grid gap-10 py-24 md:grid-cols-12 md:py-32">
-        <SectionHeading title={environments.heading} intro={environments.text} className="md:col-span-5" />
-        <ul className="divide-y divide-line border-y border-line md:col-span-7" data-reveal>
-          {environments.items.map((env) => (
-            <li
-              key={env.name}
-              className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-5 md:py-6"
-            >
-              <span className="text-2xl font-semibold tracking-tight md:text-[2rem]">{env.name}</span>
-              <span className="font-mono text-xs text-muted">{env.context}</span>
+      <div className="container-site py-24 md:py-32">
+        <SectionHeading title={environments.heading} intro={environments.text} />
+        <ul className="mt-12 grid gap-4 md:grid-cols-3 md:gap-6" data-reveal>
+          {environments.major.map((env) => (
+            <li key={env.name} className="card flex min-h-40 flex-col justify-between gap-6 p-7 md:p-8">
+              <span className="text-3xl font-semibold tracking-[-0.03em] md:text-4xl">{env.name}</span>
+              <span className="text-sm leading-relaxed text-muted text-pretty">{env.line}</span>
             </li>
           ))}
         </ul>
+        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:gap-8" data-reveal>
+          <p className="text-sm text-faint">{environments.minorLabel}</p>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3">
+            {environments.minor.map((env) => (
+              <li key={env.name} className="flex items-baseline gap-2">
+                <span className="font-semibold tracking-tight">{env.name}</span>
+                <span className="text-sm text-muted">{env.context}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
