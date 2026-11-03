@@ -2,6 +2,7 @@ import {
   Contact,
   Environments,
   Experiences,
+  Expertise,
   Hero,
   Profile,
   Projects,
@@ -18,6 +19,7 @@ export default function Home() {
       <Profile />
       <TwoWays />
       <TmrcFeature />
+      <Expertise />
       <Experiences />
       <Projects />
       <Environments />

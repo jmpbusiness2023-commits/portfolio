@@ -45,11 +45,12 @@ export const cvs = {
 
 export const nav = [
   { label: "Profil", href: "/#profil" },
-  { label: "TMRC FX", href: "/#tmrc-fx" },
+  { label: "Expertise", href: "/#expertise" },
   { label: "Expériences", href: "/#experiences" },
   { label: "Projets", href: "/#projects" },
   { label: "Use cases", href: "/#use-cases" },
   { label: "Stack", href: "/#stack" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const hero = {
@@ -67,6 +68,7 @@ export const profile = {
 };
 
 export const twoWays = {
+  anchor: "approche",
   heading: "Deux façons de travailler avec moi",
   intro:
     "Un même parcours, deux lectures. Selon votre besoin, voici ce que je prends en charge et ce qui le prouve.",
@@ -111,6 +113,49 @@ export const tmrcFeature = {
     "Un client pilote voulait un assistant pour repérer des configurations de marché sur l'EUR/USD à partir de règles qu'il appliquait à la main. En collaboration avec VekTrel, j'ai copiloté le projet du cadrage à la livraison d'une application de bureau connectée à MetaTrader 5.",
   cta: { label: "Lire l'étude de cas", href: "/use-cases/tmrc-fx" },
   tags: ["Cadrage", "Recette", "Python", "Temps réel", "Tauri"],
+};
+
+/** Section Expertise : les briques du profil, en trois familles. */
+export const expertise = {
+  heading: "Expertise",
+  intro: "Les briques du profil, en trois familles : piloter, analyser, concevoir.",
+  families: [
+    {
+      name: "Pilotage de projet",
+      items: [
+        "Cadrage et recueil des besoins",
+        "Planification par jalons",
+        "Gestion des risques",
+        "Recette et livraison",
+        "Coordination multi-acteurs",
+        "Relation client",
+      ],
+    },
+    {
+      name: "Data & IA",
+      items: [
+        "Analyse de données",
+        "Python",
+        "SQL / MySQL",
+        "Data engineering",
+        "Tableau",
+        "Power BI",
+        "Visualisation de données",
+        "Construction d'agents IA",
+      ],
+    },
+    {
+      name: "Ingénierie & industrie",
+      items: [
+        "Études mécaniques",
+        "CAO / CATIA V5 / VPM",
+        "Gestion documentaire / PLM",
+        "Respect des normes et standards",
+        "Lecture d'environnements techniques",
+        "Résolution de problèmes",
+      ],
+    },
+  ],
 };
 
 export const experiencesSection = {

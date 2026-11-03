@@ -15,6 +15,7 @@ import {
   environments,
   experiences,
   experiencesSection,
+  expertise,
   hero,
   profile,
   projects,
@@ -106,7 +107,7 @@ export function Profile() {
 export function TwoWays() {
   const [projet, data] = twoWays.tracks;
   return (
-    <section id="expertise" className="band-b">
+    <section id={twoWays.anchor} className="band-b">
       <div className="container-site py-24 md:py-32">
         <SectionHeading title={twoWays.heading} intro={twoWays.intro} />
         <div className="mt-12 grid gap-6 md:grid-cols-12">
@@ -169,6 +170,30 @@ export function TmrcFeature() {
             {tmrcFeature.cta.label}
             <ArrowRightIcon size={18} className="btn-arrow" aria-hidden />
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Expertise() {
+  return (
+    <section id="expertise" className="band-a">
+      <div className="container-site py-24 md:py-32">
+        <SectionHeading title={expertise.heading} intro={expertise.intro} />
+        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-line">
+          {expertise.families.map((family) => (
+            <div key={family.name} className="md:px-8 md:first:pl-0 md:last:pr-0" data-reveal>
+              <h3 className="text-lg font-semibold tracking-tight">{family.name}</h3>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {family.items.map((item) => (
+                  <li key={item} className="chip">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
