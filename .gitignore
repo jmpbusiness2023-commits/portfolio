@@ -48,3 +48,6 @@ next-env.d.ts
 /.claude/
 /BRIEF-PORTFOLIO.md
 /RETOURS-*.md
+
+# générateur des CV PDF (sources et anciennes versions, hors dépôt public)
+/sources-cv/
