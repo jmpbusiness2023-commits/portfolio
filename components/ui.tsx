@@ -36,7 +36,7 @@ export function StatsBand() {
           } ${i === 2 ? "lg:border-l" : ""}`}
         >
           <dt className="order-2 text-sm leading-snug text-muted">{stat.label}</dt>
-          <dd className="order-1 font-mono text-5xl font-medium tracking-tighter tabular-nums md:text-6xl">
+          <dd className="order-1 font-mono text-5xl font-medium tracking-tighter text-accent tabular-nums md:text-6xl">
             {stat.value}
           </dd>
         </div>

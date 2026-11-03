@@ -153,23 +153,31 @@ function TrackBlock({
 
 export function TmrcFeature() {
   return (
-    <section id="tmrc-fx" className="band-halo">
+    <section id="tmrc-fx" className="band-flagship">
       <div className="container-site py-24 md:py-32">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
-          <SectionHeading eyebrow={tmrcFeature.eyebrow} title={tmrcFeature.heading} className="md:col-span-7" />
-          <div className="space-y-6 md:col-span-5" data-reveal>
-            <p className="text-lg leading-relaxed text-muted text-pretty">{tmrcFeature.context}</p>
-            <TagList tags={tmrcFeature.tags} label="Thèmes du projet" />
+        <div
+          className="rounded-[12px] border border-accent-border-strong bg-surface p-7 shadow-[0_40px_100px_-50px_rgba(37,99,235,0.55)] md:p-14"
+          data-reveal
+        >
+          <span className="badge">{tmrcFeature.eyebrow}</span>
+          <div className="mt-6 grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
+            <h2 className="text-3xl leading-[1.05] font-semibold tracking-[-0.03em] text-balance md:col-span-7 md:text-5xl">
+              {tmrcFeature.heading}
+            </h2>
+            <div className="space-y-6 md:col-span-5">
+              <p className="text-lg leading-relaxed text-muted text-pretty">{tmrcFeature.context}</p>
+              <TagList tags={tmrcFeature.tags} label="Thèmes du projet" />
+            </div>
           </div>
-        </div>
-        <div className="mt-12">
-          <StatsBand />
-        </div>
-        <div className="mt-10" data-reveal>
-          <Link href={tmrcFeature.cta.href} className="btn btn-primary">
-            {tmrcFeature.cta.label}
-            <ArrowRightIcon size={18} className="btn-arrow" aria-hidden />
-          </Link>
+          <div className="mt-12">
+            <StatsBand />
+          </div>
+          <div className="mt-10">
+            <Link href={tmrcFeature.cta.href} className="btn btn-primary">
+              {tmrcFeature.cta.label}
+              <ArrowRightIcon size={18} className="btn-arrow" aria-hidden />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -391,11 +399,14 @@ export function UseCases() {
 
         <Link
           href={`/use-cases/${tmrcCase.slug}`}
-          className="card card-hover group mt-12 grid gap-6 p-7 md:grid-cols-12 md:items-center md:p-10"
+          className="card card-hover group mt-12 grid gap-6 border-accent-border-strong p-7 md:grid-cols-12 md:items-center md:p-10"
           data-reveal
         >
           <div className="md:col-span-9">
-            <p className="font-mono text-xs text-muted">{useCases.tmrcLabel}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="badge">{tmrcFeature.eyebrow}</span>
+              <p className="font-mono text-xs text-muted">{useCases.tmrcLabel}</p>
+            </div>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">{tmrcCase.title}</h3>
             <p className="mt-3 max-w-2xl leading-relaxed text-muted text-pretty">{tmrcCase.challenge}</p>
           </div>
