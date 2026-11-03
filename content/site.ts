@@ -64,7 +64,7 @@ export const hero = {
 
 export const profile = {
   heading: "Ingénieur de formation, chef de projet et analyste de données par la pratique.",
-  text: "Ingénieur Bac+5 en mécanique des structures, passé par Dassault Aviation (via ALTEN) et Stellantis, puis formé à la data et à l'IA chez Ironhack. Aujourd'hui, je mène des projets clients de bout en bout chez VekTrel : cadrage, décisions tracées, recette, livraison, avec un vrai pied dans la technique (Python, données temps réel, agents IA).",
+  text: "Ingénieur Bac+5 en mécanique des structures, passé par Dassault Aviation (via ALTEN) et Stellantis, puis formé à la data et à l'IA chez Ironhack. Depuis septembre 2026, je collabore avec VekTrel sur un projet client mené de bout en bout : cadrage, décisions tracées, recette et livraison, avec un vrai pied dans la technique (Python, données temps réel, agents IA).",
 };
 
 export const twoWays = {
@@ -109,7 +109,7 @@ export const tmrcFeature = {
   eyebrow: "Projet phare",
   heading: "TMRC FX : du brief client à l'application livrée",
   context:
-    "Un client pilote voulait un assistant pour repérer des configurations de marché sur l'EUR/USD à partir de règles qu'il appliquait à la main. Chez VekTrel, j'ai copiloté le projet du cadrage à la livraison d'une application de bureau connectée à MetaTrader 5.",
+    "Un client pilote voulait un assistant pour repérer des configurations de marché sur l'EUR/USD à partir de règles qu'il appliquait à la main. En collaboration avec VekTrel, j'ai copiloté le projet du cadrage à la livraison d'une application de bureau connectée à MetaTrader 5.",
   cta: { label: "Lire l'étude de cas", href: "/use-cases/tmrc-fx" },
   tags: ["Cadrage", "Recette", "Python", "Temps réel", "Tauri"],
 };
@@ -133,7 +133,7 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     title: "Chef de projet technique & développeur data",
-    org: "VekTrel, projet client TMRC FX",
+    org: "En collaboration avec VekTrel, projet client TMRC FX",
     period: "Sept. 2026 - aujourd'hui",
     place: "Paris (hybride)",
     summary:
@@ -346,7 +346,7 @@ export const useCases = {
   heading: "Use cases",
   intro:
     "Des cas concrets, du projet client aux projets data, avec le détail de la démarche.",
-  tmrcLabel: "Projet client · VekTrel · Sept. 2026 - aujourd'hui",
+  tmrcLabel: "Projet client · en collaboration avec VekTrel · Sept. 2026 - aujourd'hui",
 };
 
 export const stack = {
@@ -430,14 +430,14 @@ export const tmrcCase = {
       "Cadrage, recette et pipeline de données Python temps réel : comment un savoir-faire de marché discrétionnaire est devenu une application de bureau livrée.",
   },
   meta: [
-    { label: "Structure", value: "VekTrel, pour un client pilote" },
+    { label: "Cadre", value: "En collaboration avec VekTrel, pour un client pilote" },
     { label: "Période", value: "Sept. 2026 - aujourd'hui" },
     { label: "Rôle", value: "Copilote du projet" },
     { label: "Livrable", value: "Application de bureau macOS et Windows" },
   ],
   context:
     "Un client pilote voulait un assistant pour repérer des configurations de marché sur l'EUR/USD à partir de règles qu'il appliquait à la main. Son brief était riche mais très interprétatif : une même règle pouvait produire de 10 à plus de 1 700 signaux sur la même période selon la lecture.",
-  role: "Copilote du projet aux côtés du responsable VekTrel : cadrage, relecture des livrables contractuels, recette, et développement de plusieurs modules.",
+  role: "Copilote du projet aux côtés du responsable de VekTrel : cadrage, relecture des livrables contractuels, recette, et développement de plusieurs modules.",
   challenge:
     "Transformer un savoir-faire discrétionnaire en règles testables, et ne rien coder avant d'avoir des règles validées par le client.",
   work: {
