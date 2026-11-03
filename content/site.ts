@@ -65,7 +65,7 @@ export const hero = {
 
 export const profile = {
   heading: "Ingénieur de formation, chef de projet et analyste de données par la pratique.",
-  text: "Ingénieur Bac+5 en mécanique des structures, passé par Dassault Aviation (via ALTEN) et Stellantis, puis formé à la data et à l'IA chez Ironhack. Depuis septembre 2026, je collabore avec VekTrel sur un projet client mené de bout en bout : cadrage, décisions tracées, recette et livraison, avec un vrai pied dans la technique (Python, données temps réel, agents IA).",
+  text: "Ingénieur Bac+5 en mécanique des structures, passé par Dassault Aviation (via ALTEN) et Stellantis, puis formé à la data et à l'IA chez Ironhack. Je collabore aujourd'hui avec VekTrel sur des projets clients menés de bout en bout : cadrage, décisions tracées, recette et livraison, avec un vrai pied dans la technique (Python, données temps réel, agents IA).",
 };
 
 export const twoWays = {
