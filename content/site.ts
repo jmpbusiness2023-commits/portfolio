@@ -60,6 +60,8 @@ export const hero = {
   pitch:
     "Je pilote des projets logiciels de bout en bout et je construis les pipelines de données qui les font tourner.",
   primaryCta: { label: "Voir le projet phare", href: "/#tmrc-fx" },
+  /** Renvoie vers « Deux façons de travailler avec moi », seul endroit où les CV se téléchargent. */
+  cvCta: { label: "Voir les CV", href: "/#approche" },
   photoAlt:
     "Jérémy-Morgan Patole, bras croisés, dans un espace de travail lumineux",
   availability: "Basé à Paris · hybride",

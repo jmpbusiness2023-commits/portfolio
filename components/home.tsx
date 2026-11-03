@@ -60,15 +60,10 @@ export function Hero() {
             <Link href="/#contact" className="btn btn-secondary">
               {contact.ctaLabel}
             </Link>
+            <Link href={hero.cvCta.href} className="btn btn-secondary">
+              {hero.cvCta.label}
+            </Link>
           </div>
-          <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-            <a className="link" href={cvs.projet.href} download>
-              {cvs.projet.label}
-            </a>
-            <a className="link" href={cvs.data.href} download>
-              {cvs.data.label}
-            </a>
-          </p>
         </div>
 
         <div className="relative overflow-hidden rounded-[12px] border border-line bg-surface-2 md:col-span-5">
