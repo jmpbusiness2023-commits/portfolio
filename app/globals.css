@@ -262,6 +262,32 @@ body::before {
 .btn-secondary:hover {
   border-color: var(--fg);
 }
+/* Boutons de la carte Contact (fond bleu clair, identique dans les deux thèmes) */
+.btn-ink {
+  background: #050816;
+  color: #ffffff;
+}
+.btn-ink:hover {
+  background: #1e293b;
+}
+.btn-glass {
+  border: 1px solid rgb(5 8 22 / 0.12);
+  background: rgb(255 255 255 / 0.72);
+  color: #050816;
+}
+.btn-glass:hover {
+  background: #ffffff;
+}
+.btn-outline-ink {
+  border: 1px solid rgb(5 8 22 / 0.35);
+  color: #050816;
+}
+.btn-outline-ink:hover {
+  background: rgb(255 255 255 / 0.35);
+}
+.contact-card :focus-visible {
+  outline-color: #050816;
+}
 .btn .btn-arrow {
   transition: transform 160ms ease;
 }

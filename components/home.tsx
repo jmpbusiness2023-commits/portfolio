@@ -4,8 +4,11 @@ import {
   ArrowRightIcon,
   ArrowUpRightIcon,
   CheckIcon,
+  DownloadSimpleIcon,
   EnvelopeSimpleIcon,
   GithubLogoIcon,
+  LinkedinLogoIcon,
+  PhoneIcon,
 } from "@phosphor-icons/react/ssr";
 import {
   contact,
@@ -467,48 +470,48 @@ export function Stack() {
 
 export function Contact() {
   const l = contactSection.labels;
-  const rows = [
-    { label: l.email, value: contact.email, href: `mailto:${contact.email}` },
-    { label: l.phone, value: contact.phone, href: contact.phoneHref },
-    { label: l.linkedin, value: l.linkedinShort, href: contact.linkedin, external: true },
-    { label: l.github, value: l.githubShort, href: contact.github, external: true },
-  ];
   return (
     <section id="contact" className="band-halo">
-      <div className="container-site grid gap-12 py-24 md:grid-cols-12 md:py-32">
-        <div className="md:col-span-7" data-reveal>
-          <h2 className="text-4xl font-semibold tracking-[-0.03em] text-balance md:text-6xl md:leading-[1.02]">
+      <div className="container-site py-24 md:py-32">
+        <div
+          className="contact-card rounded-[12px] border border-blue-300/70 bg-linear-to-br from-[#dbeafe] via-[#93c5fd] to-[#3b82f6] p-8 text-[#050816] shadow-[0_40px_100px_-50px_rgba(37,99,235,0.6)] md:p-16"
+          data-reveal
+        >
+          <h2 className="max-w-3xl text-3xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance md:text-5xl">
             {contactSection.heading}
           </h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted text-pretty">{contactSection.text}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a href={`mailto:${contact.email}`} className="btn btn-primary">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0f172a]/80 text-pretty">
+            {contactSection.text}
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href={`mailto:${contact.email}`} className="btn btn-ink">
               <EnvelopeSimpleIcon size={18} aria-hidden />
-              {contact.ctaLabel}
+              {contact.email}
             </a>
-            <CvButton which="projet" />
-            <CvButton which="data" />
+            <a href={contact.phoneHref} className="btn btn-glass" aria-label={`${l.phone} : ${contact.phone}`}>
+              <PhoneIcon size={18} aria-hidden />
+              {contact.phone}
+            </a>
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-glass"
+              aria-label={`${l.linkedin} (nouvel onglet)`}
+            >
+              <LinkedinLogoIcon size={18} weight="fill" aria-hidden />
+              {l.linkedin}
+            </a>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {(["projet", "data"] as const).map((which) => (
+              <a key={which} href={cvs[which].href} download className="btn btn-outline-ink">
+                <DownloadSimpleIcon size={18} aria-hidden />
+                {cvs[which].label}
+              </a>
+            ))}
           </div>
         </div>
-        <dl className="self-end border-t border-line md:col-span-5" data-reveal>
-          {rows.map((row) => (
-            <div
-              key={row.label}
-              className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-line py-4"
-            >
-              <dt className="text-sm text-muted">{row.label}</dt>
-              <dd className="font-mono text-sm">
-                <a
-                  href={row.href}
-                  className="link"
-                  {...(row.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {row.value}
-                </a>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

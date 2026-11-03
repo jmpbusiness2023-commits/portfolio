@@ -424,8 +424,8 @@ export const stack = {
 };
 
 export const contactSection = {
-  heading: "Parlons de votre projet",
-  text: "Un poste de chef de projet technique ou de data analyst, une mission, une question : écrivez-moi, je réponds rapidement.",
+  heading: "À la recherche d'un chef de projet technique ou d'un profil data, rigoureux et adaptable ?",
+  text: "Disponible pour échanger sur des opportunités en pilotage de projets techniques, en data et en IA, en particulier dans des environnements exigeants.",
   labels: {
     email: "Email",
     phone: "Téléphone",
