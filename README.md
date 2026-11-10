@@ -7,8 +7,8 @@ Site Next.js déployé sur Vercel. Le dépôt GitHub est **la seule source de v�
 | Je veux changer… | Fichier |
 | --- | --- |
 | Un texte, une expérience, une formation, un projet, la stack, les coordonnées | `content/fr.ts` (français) **et** `content/en.ts` (anglais) |
-| Un CV | `public/cv-jeremy-morgan-patole-projet.pdf` et `public/cv-jeremy-morgan-patole-data.pdf` |
-| Les CV proposés sur la version anglaise | `cvs` dans `content/en.ts` (pour l'instant, les CV français) |
+| Un CV français | `public/cv-jeremy-morgan-patole-projet.pdf` et `public/cv-jeremy-morgan-patole-data.pdf` |
+| Un CV anglais | `public/cv-jeremy-morgan-patole-projet-en.pdf` et `public/cv-jeremy-morgan-patole-data-en.pdf` |
 | La photo | `public/hero-jeremy.jpeg` |
 | L'image de partage (LinkedIn, Slack…) | générée automatiquement pour chaque langue par `app/[lang]/opengraph-image.tsx` |
 | Le titre et la description pour Google | `site.seo` dans `content/fr.ts` et `content/en.ts` |
@@ -31,7 +31,7 @@ Règles de rédaction :
 ### Remplacer un CV
 
 1. Exporter le nouveau PDF.
-2. Le renommer **exactement** `cv-jeremy-morgan-patole-projet.pdf` ou `cv-jeremy-morgan-patole-data.pdf`.
+2. Le renommer **exactement** `cv-jeremy-morgan-patole-projet.pdf` ou `cv-jeremy-morgan-patole-data.pdf` (version anglaise : même nom avec `-en` avant `.pdf`).
 3. Remplacer le fichier dans `public/`.
 
 Garder le même nom évite de casser les liens déjà partagés.

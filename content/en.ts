@@ -63,18 +63,15 @@ export const contact = {
   ctaLabel: "Contact me",
 };
 
-/**
- * The two CVs. Until the English CVs are added to `public/`, these links point
- * to the French versions: only change `href` (and the labels) to switch.
- */
+/** The two English CVs. Keep the same file names in `public/` so shared links keep working. */
 export const cvs = {
   projet: {
-    label: "Download the Project CV (French)",
-    href: "/cv-jeremy-morgan-patole-projet.pdf",
+    label: "Download the Project CV",
+    href: "/cv-jeremy-morgan-patole-projet-en.pdf",
   },
   data: {
-    label: "Download the Data CV (French)",
-    href: "/cv-jeremy-morgan-patole-data.pdf",
+    label: "Download the Data CV",
+    href: "/cv-jeremy-morgan-patole-data-en.pdf",
   },
 };
 
