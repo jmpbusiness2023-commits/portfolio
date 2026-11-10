@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon, EnvelopeSimpleIcon } from "@phosphor-icons/react/ssr";
-import { caseLabels, contact } from "@/content/site";
+import { getContent } from "@/content";
 import { CvButton } from "./ui";
 
-export function CaseHeader({
+export async function CaseHeader({
   eyebrow,
   title,
   lead,
@@ -15,12 +15,13 @@ export function CaseHeader({
   lead?: string;
   meta: { label: string; value: ReactNode }[];
 }) {
+  const { caseLabels, i18n } = await getContent();
   return (
     <header className="band-halo relative isolate overflow-hidden">
       <div aria-hidden className="blueprint absolute inset-0 -z-10" />
       <div className="container-site pt-10 pb-14 md:pt-14 md:pb-20">
         <Link
-          href="/#use-cases"
+          href={`${i18n.home}#use-cases`}
           className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-fg"
         >
           <ArrowLeftIcon size={16} aria-hidden />
@@ -58,7 +59,8 @@ export function CaseRow({ title, children, id }: { title: string; children: Reac
   );
 }
 
-export function CaseFooter() {
+export async function CaseFooter() {
+  const { caseLabels, contact } = await getContent();
   return (
     <section>
       <div className="container-site flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">

@@ -28,5 +28,15 @@ export function RevealObserver() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  // Chargement direct d'une URL avec ancre (ex. bascule FR/EN depuis /en#projects) :
+  // le navigateur ne descend pas jusqu'à la section, on le fait une fois la page hydratée.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    if (target && Math.abs(target.getBoundingClientRect().top) > 120) {
+      target.scrollIntoView({ behavior: "instant" });
+    }
+  }, []);
+
   return null;
 }

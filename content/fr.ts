@@ -1,7 +1,8 @@
 /**
- * Tout le texte du site vit ici.
+ * Tout le texte du site en français vit ici. La version anglaise est dans
+ * `content/en.ts`, avec exactement la même structure.
  * Pour une mise à jour de contenu (expérience, projet, CV, coordonnées),
- * modifier uniquement ce fichier et, si besoin, les fichiers de `public/`.
+ * modifier ce fichier et son équivalent anglais, et si besoin `public/`.
  *
  * Règle typographique : pas de tiret long dans les textes visibles.
  * Utiliser le tiret simple "-", des virgules, des deux-points ou des points.
@@ -21,6 +22,36 @@ export const site = {
     description:
       "Chef de projet technique et Data Analyst à Paris. Pilotage de projets clients, pipelines de données Python et IA. Étude de cas : TMRC FX.",
   },
+};
+
+/** Langue de cette version du site et bouton de bascule du ruban. */
+export const i18n = {
+  lang: "fr",
+  ogLocale: "fr_FR",
+  /** Préfixe des URL de cette langue ("" pour le français, servi à la racine). */
+  base: "",
+  /** Accueil de cette langue, pour construire les ancres ("/#contact"). */
+  home: "/",
+  switchTo: { label: "EN", ariaLabel: "Read this page in English", hrefLang: "en" },
+};
+
+/** Textes d'interface hors sections (accessibilité, libellés courts). */
+export const ui = {
+  skipLink: "Aller au contenu",
+  mainNav: "Navigation principale",
+  mobileNav: "Navigation mobile",
+  openMenu: "Ouvrir le menu",
+  closeMenu: "Fermer le menu",
+  newTab: "nouvel onglet",
+  themeToggle: "Basculer entre thème clair et sombre",
+  workTabs: "Lecture de l'étude de cas",
+  pipelineSteps: "Étapes du pipeline",
+  projectThemes: "Thèmes du projet",
+  technologies: "Technologies",
+  tools: "Outils",
+  skills: "Compétences",
+  /** Deux-points précédé d'une espace insécable, selon la typographie française. */
+  colon: "\u00a0: ",
 };
 
 export const contact = {
@@ -527,6 +558,15 @@ export const tmrcCase = {
     caption:
       "Les données de marché circulent de MetaTrader 5 vers un pipeline Python local, qui produit des alertes. La décision d'entrer en position reste humaine.",
     pipelineSteps: ["Agrégation", "Structure", "Règles", "Risque", "Annonces économiques"],
+    /** Les étapes du schéma, dans l'ordre. Le nœud `pipeline` reçoit les `pipelineSteps`. */
+    nodes: [
+      { title: "MetaTrader 5", detail: "Plateforme de marché du client" },
+      { title: "Indicateur d'export", detail: "MQL5, bougies M1" },
+      { title: "Fichier local", detail: "Validé strictement à chaque lecture" },
+      { title: "Pipeline Python", detail: "Rejouable, horodaté en UTC", pipeline: true },
+      { title: "Alertes et application", detail: "Application de bureau, journal des alertes" },
+      { title: "Décision humaine", detail: "Aucun ordre réel exécuté automatiquement", human: true },
+    ] as { title: string; detail: string; pipeline?: boolean; human?: boolean }[],
   },
   stack: ["Python (bibliothèque standard, pytest)", "TypeScript", "Tauri", "MQL5", "GitHub (PR, issues, jalons)", "Claude Code", "Codex"],
   lessons: [

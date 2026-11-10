@@ -6,13 +6,20 @@ Site Next.js déployé sur Vercel. Le dépôt GitHub est **la seule source de v�
 
 | Je veux changer… | Fichier |
 | --- | --- |
-| Un texte, une expérience, une formation, un projet, la stack, les coordonnées | `content/site.ts` |
+| Un texte, une expérience, une formation, un projet, la stack, les coordonnées | `content/fr.ts` (français) **et** `content/en.ts` (anglais) |
 | Un CV | `public/cv-jeremy-morgan-patole-projet.pdf` et `public/cv-jeremy-morgan-patole-data.pdf` |
+| Les CV proposés sur la version anglaise | `cvs` dans `content/en.ts` (pour l'instant, les CV français) |
 | La photo | `public/hero-jeremy.jpeg` |
-| L'image de partage (LinkedIn, Slack…) | générée automatiquement depuis `content/site.ts` par `app/opengraph-image.tsx` |
-| Le titre et la description pour Google | `site.seo` dans `content/site.ts` |
+| L'image de partage (LinkedIn, Slack…) | générée automatiquement pour chaque langue par `app/[lang]/opengraph-image.tsx` |
+| Le titre et la description pour Google | `site.seo` dans `content/fr.ts` et `content/en.ts` |
 
-Pour une mise à jour de contenu simple, **ne touchez qu'à `content/site.ts` et `public/`**. Les composants (`components/`) n'ont pas à bouger.
+Pour une mise à jour de contenu simple, **ne touchez qu'à `content/fr.ts`, `content/en.ts` et `public/`**. Les composants (`components/`) n'ont pas à bouger.
+
+### Deux langues
+
+Le site existe en français (à la racine : `/`, `/use-cases/...`) et en anglais (sous `/en` : `/en`, `/en/use-cases/...`). Le bouton FR/EN du ruban ouvre la même page dans l'autre langue.
+
+`content/en.ts` a exactement la même structure que `content/fr.ts`. Si une clé manque ou change de forme d'un côté, `npm run build` échoue : c'est voulu, pour qu'aucune page ne reste à moitié traduite.
 
 Règles de rédaction :
 
@@ -83,12 +90,14 @@ npm run build
 ## Structure technique
 
 ```
-content/site.ts          tous les textes
-app/page.tsx             page d'accueil
-app/use-cases/tmrc-fx/   étude de cas TMRC FX
-app/use-cases/[slug]/    pages des projets data
-app/opengraph-image.tsx  image de partage 1200×630
-app/sitemap.ts           sitemap.xml
+content/fr.ts            tous les textes en français
+content/en.ts            tous les textes en anglais (même structure)
+content/index.ts         choix de la langue, liens hreflang
+app/[lang]/page.tsx      page d'accueil
+app/[lang]/use-cases/    étude de cas TMRC FX et pages des projets data
+app/[lang]/opengraph-image.tsx  image de partage 1200×630, une par langue
+app/sitemap.ts           sitemap.xml (les deux langues)
+next.config.ts           sert le français à la racine (réécriture vers /fr)
 components/              sections et composants
 public/                  photo et CV
 ```

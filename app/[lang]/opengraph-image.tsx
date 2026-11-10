@@ -1,12 +1,19 @@
 import { ImageResponse } from "next/og";
-import { site } from "@/content/site";
+import { getContent, locales } from "@/content";
+import { site as frSite } from "@/content/fr";
 
-export const alt = site.seo.title;
+export const alt = frSite.name;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/** Image de partage 1200×630, générée au build à partir de content/site.ts. */
-export default function OpengraphImage() {
+// Une image par langue, générée au build.
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+/** Image de partage 1200×630, générée au build pour chaque langue (content/fr.ts, content/en.ts). */
+export default async function OpengraphImage({ params }: { params: Promise<{ lang: string }> }) {
+  const { site } = await getContent((await params).lang);
   const grid = "rgba(250,250,250,0.06)";
   const [roleA, roleB] = site.title.split(" & ");
   return new ImageResponse(

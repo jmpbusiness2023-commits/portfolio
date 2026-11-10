@@ -10,30 +10,12 @@ import {
   LinkedinLogoIcon,
   PhoneIcon,
 } from "@phosphor-icons/react/ssr";
-import {
-  contact,
-  contactSection,
-  cvs,
-  education,
-  environments,
-  experiences,
-  experiencesSection,
-  expertise,
-  hero,
-  profile,
-  projects,
-  projectsSection,
-  site,
-  stack,
-  tmrcCase,
-  tmrcFeature,
-  twoWays,
-  useCases,
-} from "@/content/site";
+import { getContent, type Content } from "@/content";
 import heroPhoto from "@/public/hero-jeremy.jpeg";
 import { CvButton, SectionHeading, StatsBand, TagList } from "./ui";
 
-export function Hero() {
+export async function Hero() {
+  const { site, hero, contact, i18n } = await getContent();
   const [first, ...rest] = site.name.split(" ");
   const last = rest.join(" ");
   const [roleA, roleB] = site.title.split(" & ");
@@ -57,7 +39,7 @@ export function Hero() {
               {hero.primaryCta.label}
               <ArrowRightIcon size={18} className="btn-arrow" aria-hidden />
             </Link>
-            <Link href="/#contact" className="btn btn-secondary">
+            <Link href={`${i18n.home}#contact`} className="btn btn-secondary">
               {contact.ctaLabel}
             </Link>
             <Link href={hero.cvCta.href} className="btn btn-secondary">
@@ -81,7 +63,8 @@ export function Hero() {
   );
 }
 
-export function Profile() {
+export async function Profile() {
+  const { profile } = await getContent();
   return (
     <section id="profil" className="band-a">
       <div className="container-site grid gap-8 py-24 md:grid-cols-12 md:gap-10 md:py-32">
@@ -102,7 +85,8 @@ export function Profile() {
   );
 }
 
-export function TwoWays() {
+export async function TwoWays() {
+  const { twoWays } = await getContent();
   const [projet, data] = twoWays.tracks;
   return (
     <section id={twoWays.anchor} className="band-b">
@@ -126,7 +110,7 @@ function TrackBlock({
   className,
   which,
 }: {
-  track: (typeof twoWays.tracks)[number];
+  track: Content["twoWays"]["tracks"][number];
   className: string;
   which: "projet" | "data";
 }) {
@@ -149,7 +133,8 @@ function TrackBlock({
   );
 }
 
-export function TmrcFeature() {
+export async function TmrcFeature() {
+  const { tmrcFeature, ui } = await getContent();
   return (
     <section id="tmrc-fx" className="band-flagship">
       <div className="container-site py-24 md:py-32">
@@ -164,7 +149,7 @@ export function TmrcFeature() {
             </h2>
             <div className="space-y-6 md:col-span-5">
               <p className="text-lg leading-relaxed text-muted text-pretty">{tmrcFeature.context}</p>
-              <TagList tags={tmrcFeature.tags} label="Thèmes du projet" />
+              <TagList tags={tmrcFeature.tags} label={ui.projectThemes} />
             </div>
           </div>
           <div className="mt-12">
@@ -182,7 +167,8 @@ export function TmrcFeature() {
   );
 }
 
-export function Expertise() {
+export async function Expertise() {
+  const { expertise } = await getContent();
   return (
     <section id="expertise" className="band-a">
       <div className="container-site py-24 md:py-32">
@@ -206,7 +192,8 @@ export function Expertise() {
   );
 }
 
-export function Experiences() {
+export async function Experiences() {
+  const { experiences, experiencesSection, education } = await getContent();
   return (
     <section id="experiences" className="band-b">
       <div className="container-site grid gap-12 py-24 md:grid-cols-12 md:gap-10 md:py-32">
@@ -270,10 +257,11 @@ export function Experiences() {
   );
 }
 
-function ProjectLinks({ slug, repo }: { slug: string; repo: string }) {
+async function ProjectLinks({ slug, repo }: { slug: string; repo: string }) {
+  const { projectsSection, i18n } = await getContent();
   return (
     <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium">
-      <Link href={`/use-cases/${slug}`} className="link inline-flex items-center gap-1.5">
+      <Link href={`${i18n.base}/use-cases/${slug}`} className="link inline-flex items-center gap-1.5">
         {projectsSection.detailLabel}
         <ArrowRightIcon size={16} aria-hidden />
       </Link>
@@ -290,7 +278,8 @@ function ProjectLinks({ slug, repo }: { slug: string; repo: string }) {
   );
 }
 
-export function Projects() {
+export async function Projects() {
+  const { projects, projectsSection, ui, i18n } = await getContent();
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
   const [lead, ...rest] = featured;
@@ -320,7 +309,7 @@ export function Projects() {
               ))}
             </ol>
             <div className="mt-auto pt-10">
-              <TagList tags={lead.tags} label="Technologies" />
+              <TagList tags={lead.tags} label={ui.technologies} />
               <ProjectLinks slug={lead.slug} repo={lead.repos[0].href} />
             </div>
           </article>
@@ -334,7 +323,7 @@ export function Projects() {
                 <h3 className="mt-3 text-xl font-semibold tracking-tight">{p.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted text-pretty">{p.summary}</p>
                 <div className="mt-6">
-                  <TagList tags={p.tags} label="Technologies" />
+                  <TagList tags={p.tags} label={ui.technologies} />
                 </div>
                 <ProjectLinks slug={p.slug} repo={p.repos[0].href} />
               </article>
@@ -347,7 +336,7 @@ export function Projects() {
             {projectsSection.othersLabel}{" "}
             {others.map((p, i) => (
               <span key={p.slug}>
-                <Link href={`/use-cases/${p.slug}`} className="link">
+                <Link href={`${i18n.base}/use-cases/${p.slug}`} className="link">
                   {p.title}
                 </Link>
                 {i < others.length - 1 ? ", " : "."}
@@ -360,7 +349,8 @@ export function Projects() {
   );
 }
 
-export function Environments() {
+export async function Environments() {
+  const { environments } = await getContent();
   return (
     <section id="clients" className="band-b">
       <div className="container-site py-24 md:py-32">
@@ -389,14 +379,15 @@ export function Environments() {
   );
 }
 
-export function UseCases() {
+export async function UseCases() {
+  const { useCases, tmrcCase, tmrcFeature, projects, i18n } = await getContent();
   return (
     <section id="use-cases" className="band-a">
       <div className="container-site py-24 md:py-32">
         <SectionHeading title={useCases.heading} intro={useCases.intro} />
 
         <Link
-          href={`/use-cases/${tmrcCase.slug}`}
+          href={`${i18n.base}/use-cases/${tmrcCase.slug}`}
           className="card card-hover group mt-12 grid gap-6 border-accent-border-strong p-7 md:grid-cols-12 md:items-center md:p-10"
           data-reveal
         >
@@ -418,7 +409,7 @@ export function UseCases() {
           {projects.map((p) => (
             <li key={p.slug}>
               <Link
-                href={`/use-cases/${p.slug}`}
+                href={`${i18n.base}/use-cases/${p.slug}`}
                 className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 border-b border-line py-5 transition-colors hover:bg-surface md:grid-cols-12 md:px-3"
               >
                 <span className="font-medium md:col-span-5">{p.title}</span>
@@ -440,7 +431,8 @@ export function UseCases() {
   );
 }
 
-export function Stack() {
+export async function Stack() {
+  const { stack } = await getContent();
   return (
     <section id="stack" className="band-b">
       <div className="container-site grid gap-10 py-24 md:grid-cols-12 md:py-32">
@@ -463,7 +455,8 @@ export function Stack() {
   );
 }
 
-export function Contact() {
+export async function Contact() {
+  const { contact, contactSection, cvs, ui } = await getContent();
   const l = contactSection.labels;
   return (
     <section id="contact" className="band-halo">
@@ -483,7 +476,7 @@ export function Contact() {
               <EnvelopeSimpleIcon size={18} aria-hidden />
               {contact.email}
             </a>
-            <a href={contact.phoneHref} className="btn btn-glass" aria-label={`${l.phone} : ${contact.phone}`}>
+            <a href={contact.phoneHref} className="btn btn-glass" aria-label={`${l.phone}${ui.colon}${contact.phone}`}>
               <PhoneIcon size={18} aria-hidden />
               {contact.phone}
             </a>
@@ -492,7 +485,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-glass"
-              aria-label={`${l.linkedin} (nouvel onglet)`}
+              aria-label={`${l.linkedin} (${ui.newTab})`}
             >
               <LinkedinLogoIcon size={18} weight="fill" aria-hidden />
               {l.linkedin}
