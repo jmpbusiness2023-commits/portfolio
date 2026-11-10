@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { DownloadSimpleIcon } from "@phosphor-icons/react/ssr";
-import { cvs, tmrcStats } from "@/content/site";
+import { getContent, type Content } from "@/content";
 
 export function SectionHeading({
   title,
@@ -25,7 +25,8 @@ export function SectionHeading({
 }
 
 /** Bandeau des seuls chiffres autorisés pour TMRC FX. */
-export function StatsBand() {
+export async function StatsBand() {
+  const { tmrcStats } = await getContent();
   return (
     <dl className="ticks grid grid-cols-2 border border-line lg:grid-cols-4" data-reveal>
       {tmrcStats.map((stat, i) => (
@@ -45,13 +46,14 @@ export function StatsBand() {
   );
 }
 
-export function CvButton({
+export async function CvButton({
   which,
   variant = "secondary",
 }: {
-  which: keyof typeof cvs;
+  which: keyof Content["cvs"];
   variant?: "primary" | "secondary";
 }) {
+  const { cvs } = await getContent();
   const cv = cvs[which];
   return (
     <a href={cv.href} download className={`btn btn-${variant}`}>

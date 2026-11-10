@@ -6,7 +6,7 @@ import { CheckIcon } from "@phosphor-icons/react";
 type Tab = { id: string; label: string; lead: string; items: string[] };
 
 /** Onglets accessibles « Pilotage » / « Data » pour la double lecture de l'étude de cas. */
-export function WorkTabs({ tabs }: { tabs: Tab[] }) {
+export function WorkTabs({ tabs, label }: { tabs: Tab[]; label: string }) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const base = useId();
@@ -28,7 +28,7 @@ export function WorkTabs({ tabs }: { tabs: Tab[] }) {
     <div>
       <div
         role="tablist"
-        aria-label="Lecture de l'étude de cas"
+        aria-label={label}
         className="inline-flex rounded-full border border-line bg-surface p-1"
       >
         {tabs.map((tab, i) => (

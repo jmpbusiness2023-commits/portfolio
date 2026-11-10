@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { contact, site } from "@/content/site";
+import "../globals.css";
+import { alternatesFor, getContent, hasLocale, locales } from "@/content";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RevealObserver } from "@/components/RevealObserver";
@@ -16,25 +16,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: site.seo.title,
-  description: site.seo.description,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: site.url,
-    siteName: site.name,
+// Deux langues générées au build. Toute autre valeur de [lang] donne une 404.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  const { site, i18n } = await getContent(lang);
+  const locale = hasLocale(lang) ? lang : "fr";
+  return {
+    metadataBase: new URL(site.url),
     title: site.seo.title,
     description: site.seo.description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.seo.title,
-    description: site.seo.description,
-  },
-};
+    alternates: alternatesFor("/", locale),
+    openGraph: {
+      type: "website",
+      locale: i18n.ogLocale,
+      url: alternatesFor("/", locale).canonical,
+      siteName: site.name,
+      title: site.seo.title,
+      description: site.seo.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: site.seo.title,
+      description: site.seo.description,
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -46,21 +58,24 @@ export const viewport: Viewport = {
 // Appliqué avant le premier rendu pour éviter un flash de thème.
 const themeScript = `(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();`;
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  jobTitle: site.title,
-  url: site.url,
-  email: `mailto:${contact.email}`,
-  address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
-  sameAs: [contact.linkedin, contact.github],
-};
+export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
+  const { lang } = await params;
+  const { site, contact, contactSection, nav, i18n, ui } = await getContent(lang);
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    jobTitle: site.title,
+    url: `${site.url}${i18n.base}`,
+    email: `mailto:${contact.email}`,
+    address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
+    sameAs: [contact.linkedin, contact.github],
+  };
+
   return (
     <html
-      lang="fr"
+      lang={i18n.lang}
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
@@ -76,9 +91,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#contenu"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 btn btn-primary"
         >
-          Aller au contenu
+          {ui.skipLink}
         </a>
-        <SiteHeader />
+        <SiteHeader
+          t={{
+            brand: site.brand,
+            home: i18n.home,
+            nav,
+            ctaLabel: contact.ctaLabel,
+            linkedin: { href: contact.linkedin, label: contactSection.labels.linkedin },
+            switchTo: i18n.switchTo,
+            ui,
+          }}
+        />
         <main id="contenu" className="flex-1">
           {children}
         </main>

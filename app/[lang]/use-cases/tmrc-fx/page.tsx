@@ -1,27 +1,32 @@
 import type { Metadata } from "next";
-import { caseLabels, tmrcCase } from "@/content/site";
+import { alternatesFor, getContent, hasLocale } from "@/content";
 import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { CaseFooter, CaseHeader, CaseRow } from "@/components/case";
 import { StatsBand, TagList } from "@/components/ui";
 import { WorkTabs } from "@/components/WorkTabs";
 
-const L = caseLabels.tmrc;
-const path = `/use-cases/${tmrcCase.slug}`;
-
-export const metadata: Metadata = {
-  title: tmrcCase.seo.title,
-  description: tmrcCase.seo.description,
-  alternates: { canonical: path },
-  openGraph: {
-    type: "article",
-    url: path,
-    images: ["/opengraph-image"],
+export async function generateMetadata({ params }: PageProps<"/[lang]/use-cases/tmrc-fx">): Promise<Metadata> {
+  const { lang } = await params;
+  const { tmrcCase } = await getContent(lang);
+  const alternates = alternatesFor(`/use-cases/${tmrcCase.slug}`, hasLocale(lang) ? lang : "fr");
+  return {
     title: tmrcCase.seo.title,
     description: tmrcCase.seo.description,
-  },
-};
+    alternates,
+    openGraph: {
+      type: "article",
+      url: alternates.canonical,
+      images: [`/${lang}/opengraph-image`],
+      title: tmrcCase.seo.title,
+      description: tmrcCase.seo.description,
+    },
+  };
+}
 
-export default function TmrcFxPage() {
+export default async function TmrcFxPage({ params }: PageProps<"/[lang]/use-cases/tmrc-fx">) {
+  const { lang } = await params;
+  const { caseLabels, tmrcCase, ui } = await getContent(lang);
+  const L = caseLabels.tmrc;
   const { pilotage, data } = tmrcCase.work;
   return (
     <article className="case-bands">
@@ -43,6 +48,7 @@ export default function TmrcFxPage() {
 
       <CaseRow title={L.work}>
         <WorkTabs
+          label={ui.workTabs}
           tabs={[
             { id: "pilotage", ...pilotage },
             { id: "data", ...data },

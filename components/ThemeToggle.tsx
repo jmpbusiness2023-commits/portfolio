@@ -2,7 +2,7 @@
 
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 
-export function ThemeToggle() {
+export function ThemeToggle({ label }: { label: string }) {
   function toggle() {
     const root = document.documentElement;
     const current =
@@ -19,7 +19,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label="Basculer entre thème clair et sombre"
+      aria-label={label}
       className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-fg"
     >
       {/* Les deux icônes sont rendues, le CSS affiche la bonne selon le thème actif. */}

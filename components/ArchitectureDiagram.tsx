@@ -1,23 +1,13 @@
 import { ArrowDownIcon, ArrowRightIcon } from "@phosphor-icons/react/ssr";
-import { tmrcCase } from "@/content/site";
-
-type Node = { title: string; detail: string; steps?: string[]; human?: boolean };
-
-const nodes: Node[] = [
-  { title: "MetaTrader 5", detail: "Plateforme de marché du client" },
-  { title: "Indicateur d'export", detail: "MQL5, bougies M1" },
-  { title: "Fichier local", detail: "Validé strictement à chaque lecture" },
-  {
-    title: "Pipeline Python",
-    detail: "Rejouable, horodaté en UTC",
-    steps: tmrcCase.architecture.pipelineSteps,
-  },
-  { title: "Alertes et application", detail: "Application de bureau, journal des alertes" },
-  { title: "Décision humaine", detail: "Aucun ordre réel exécuté automatiquement", human: true },
-];
+import { getContent } from "@/content";
 
 /** Schéma d'architecture TMRC FX : horizontal en grand écran, vertical sur mobile. */
-export function ArchitectureDiagram() {
+export async function ArchitectureDiagram() {
+  const { tmrcCase, ui } = await getContent();
+  const nodes = tmrcCase.architecture.nodes.map((node) => ({
+    ...node,
+    steps: node.pipeline ? tmrcCase.architecture.pipelineSteps : undefined,
+  }));
   return (
     <figure data-reveal>
       <ol className="flex flex-col lg:flex-row">
@@ -39,7 +29,7 @@ export function ArchitectureDiagram() {
               <span className="mt-1.5 font-medium leading-snug">{node.title}</span>
               <span className="mt-1 text-sm leading-snug text-muted">{node.detail}</span>
               {node.steps && (
-                <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Étapes du pipeline">
+                <ul className="mt-3 flex flex-wrap gap-1.5" aria-label={ui.pipelineSteps}>
                   {node.steps.map((s) => (
                     <li key={s} className="tag !text-[0.6875rem]">
                       {s}
